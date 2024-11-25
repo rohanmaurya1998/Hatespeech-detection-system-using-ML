@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate Speech Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('C:/Users/rohan/OneDrive/Desktop/project22/project22/static/images/ml image.jpg'); /* Add your image path here */
+            background-size:85%;  /* Ensures the image covers the entire background */
+            background-position: center;  /* Center the background image */
+            background-attachment: fixed;  /* Keeps the background fixed when scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color:rgba(255, 255, 255, 0.5);  /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-size: 18px;
+            color: bold;
+        }
+
+        textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: rgba(25, 25, 25, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgba(55, 55, 55, 0.5);
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hate Speech Detection System</h1>
+        <form action="/predict" method="POST">
+            <label for="tweet">Enter Text:</label><br><br>
+            <textarea id="tweet" name="tweet" rows="4" cols="50" placeholder="Type your text here..."></textarea><br><br>
+            <input type="submit" value="Check">
+        </form>
+        {% if prediction %}
+            <h3>Prediction: {{ prediction }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
